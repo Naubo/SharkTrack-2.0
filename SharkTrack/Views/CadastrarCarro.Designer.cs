@@ -54,6 +54,14 @@
             this.grbApagar = new System.Windows.Forms.GroupBox();
             this.btnApagar = new System.Windows.Forms.Button();
             this.lblMensagem = new System.Windows.Forms.Label();
+            this.lblAnoCadastrar = new System.Windows.Forms.Label();
+            this.txbAnoCadastrar = new System.Windows.Forms.TextBox();
+            this.txbPrecoCadastrar = new System.Windows.Forms.TextBox();
+            this.lblPrecoCadastrar = new System.Windows.Forms.Label();
+            this.lblPrecoEditar = new System.Windows.Forms.Label();
+            this.txbPrecoEdit = new System.Windows.Forms.TextBox();
+            this.txbAnoEdit = new System.Windows.Forms.TextBox();
+            this.lblAnoEditar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarros)).BeginInit();
             this.grbCadastrar.SuspendLayout();
             this.grbEditar.SuspendLayout();
@@ -63,14 +71,20 @@
             // dgvCarros
             // 
             this.dgvCarros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarros.Location = new System.Drawing.Point(589, 30);
+            this.dgvCarros.Location = new System.Drawing.Point(619, 34);
             this.dgvCarros.Name = "dgvCarros";
-            this.dgvCarros.Size = new System.Drawing.Size(416, 492);
+            this.dgvCarros.ReadOnly = true;
+            this.dgvCarros.Size = new System.Drawing.Size(416, 562);
             this.dgvCarros.TabIndex = 0;
+            this.dgvCarros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarros_CellClick);
             // 
             // grbCadastrar
             // 
+            this.grbCadastrar.Controls.Add(this.lblPrecoCadastrar);
+            this.grbCadastrar.Controls.Add(this.txbPrecoCadastrar);
+            this.grbCadastrar.Controls.Add(this.txbAnoCadastrar);
             this.grbCadastrar.Controls.Add(this.btnCadastrar);
+            this.grbCadastrar.Controls.Add(this.lblAnoCadastrar);
             this.grbCadastrar.Controls.Add(this.txbQuilometragem);
             this.grbCadastrar.Controls.Add(this.txbPlaca);
             this.grbCadastrar.Controls.Add(this.txbModelo);
@@ -81,14 +95,14 @@
             this.grbCadastrar.Controls.Add(this.lblMarca);
             this.grbCadastrar.Location = new System.Drawing.Point(12, 89);
             this.grbCadastrar.Name = "grbCadastrar";
-            this.grbCadastrar.Size = new System.Drawing.Size(265, 250);
+            this.grbCadastrar.Size = new System.Drawing.Size(265, 363);
             this.grbCadastrar.TabIndex = 1;
             this.grbCadastrar.TabStop = false;
             this.grbCadastrar.Text = "CADASTRAR";
             // 
             // btnCadastrar
             // 
-            this.btnCadastrar.Location = new System.Drawing.Point(20, 196);
+            this.btnCadastrar.Location = new System.Drawing.Point(20, 306);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(227, 39);
             this.btnCadastrar.TabIndex = 7;
@@ -172,30 +186,36 @@
             // 
             // grbEditar
             // 
+            this.grbEditar.Controls.Add(this.lblPrecoEditar);
             this.grbEditar.Controls.Add(this.btnEditar);
             this.grbEditar.Controls.Add(this.txbQuilometragemEdit);
+            this.grbEditar.Controls.Add(this.txbPrecoEdit);
             this.grbEditar.Controls.Add(this.txbPlacaEdit);
+            this.grbEditar.Controls.Add(this.txbAnoEdit);
             this.grbEditar.Controls.Add(this.txbModeloEdit);
+            this.grbEditar.Controls.Add(this.lblAnoEditar);
             this.grbEditar.Controls.Add(this.txbMarcaEdit);
             this.grbEditar.Controls.Add(this.lblQuilometragemEdit);
             this.grbEditar.Controls.Add(this.lblPlacaEdit);
             this.grbEditar.Controls.Add(this.lblModeloEdit);
             this.grbEditar.Controls.Add(this.lblMarcaEdit);
+            this.grbEditar.Enabled = false;
             this.grbEditar.Location = new System.Drawing.Point(318, 89);
             this.grbEditar.Name = "grbEditar";
-            this.grbEditar.Size = new System.Drawing.Size(265, 250);
+            this.grbEditar.Size = new System.Drawing.Size(265, 363);
             this.grbEditar.TabIndex = 3;
             this.grbEditar.TabStop = false;
             this.grbEditar.Text = "EDITAR";
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(20, 196);
+            this.btnEditar.Location = new System.Drawing.Point(20, 306);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(227, 39);
             this.btnEditar.TabIndex = 7;
             this.btnEditar.Text = "EDITAR";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // txbQuilometragemEdit
             // 
@@ -265,7 +285,8 @@
             // 
             this.grbApagar.Controls.Add(this.btnApagar);
             this.grbApagar.Controls.Add(this.lblMensagem);
-            this.grbApagar.Location = new System.Drawing.Point(160, 361);
+            this.grbApagar.Enabled = false;
+            this.grbApagar.Location = new System.Drawing.Point(150, 479);
             this.grbApagar.Name = "grbApagar";
             this.grbApagar.Size = new System.Drawing.Size(280, 134);
             this.grbApagar.TabIndex = 4;
@@ -286,17 +307,81 @@
             // 
             this.lblMensagem.AutoSize = true;
             this.lblMensagem.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensagem.Location = new System.Drawing.Point(3, 45);
+            this.lblMensagem.Location = new System.Drawing.Point(6, 32);
             this.lblMensagem.Name = "lblMensagem";
             this.lblMensagem.Size = new System.Drawing.Size(256, 20);
             this.lblMensagem.TabIndex = 0;
             this.lblMensagem.Text = "Selecione um carro para apagar!";
             // 
+            // lblAnoCadastrar
+            // 
+            this.lblAnoCadastrar.AutoSize = true;
+            this.lblAnoCadastrar.Location = new System.Drawing.Point(17, 196);
+            this.lblAnoCadastrar.Name = "lblAnoCadastrar";
+            this.lblAnoCadastrar.Size = new System.Drawing.Size(26, 13);
+            this.lblAnoCadastrar.TabIndex = 8;
+            this.lblAnoCadastrar.Text = "Ano";
+            // 
+            // txbAnoCadastrar
+            // 
+            this.txbAnoCadastrar.Location = new System.Drawing.Point(118, 196);
+            this.txbAnoCadastrar.Name = "txbAnoCadastrar";
+            this.txbAnoCadastrar.Size = new System.Drawing.Size(129, 20);
+            this.txbAnoCadastrar.TabIndex = 8;
+            // 
+            // txbPrecoCadastrar
+            // 
+            this.txbPrecoCadastrar.Location = new System.Drawing.Point(118, 230);
+            this.txbPrecoCadastrar.Name = "txbPrecoCadastrar";
+            this.txbPrecoCadastrar.Size = new System.Drawing.Size(129, 20);
+            this.txbPrecoCadastrar.TabIndex = 9;
+            // 
+            // lblPrecoCadastrar
+            // 
+            this.lblPrecoCadastrar.AutoSize = true;
+            this.lblPrecoCadastrar.Location = new System.Drawing.Point(17, 237);
+            this.lblPrecoCadastrar.Name = "lblPrecoCadastrar";
+            this.lblPrecoCadastrar.Size = new System.Drawing.Size(35, 13);
+            this.lblPrecoCadastrar.TabIndex = 10;
+            this.lblPrecoCadastrar.Text = "Preço";
+            // 
+            // lblPrecoEditar
+            // 
+            this.lblPrecoEditar.AutoSize = true;
+            this.lblPrecoEditar.Location = new System.Drawing.Point(17, 237);
+            this.lblPrecoEditar.Name = "lblPrecoEditar";
+            this.lblPrecoEditar.Size = new System.Drawing.Size(35, 13);
+            this.lblPrecoEditar.TabIndex = 14;
+            this.lblPrecoEditar.Text = "Preço";
+            // 
+            // txbPrecoEdit
+            // 
+            this.txbPrecoEdit.Location = new System.Drawing.Point(118, 230);
+            this.txbPrecoEdit.Name = "txbPrecoEdit";
+            this.txbPrecoEdit.Size = new System.Drawing.Size(129, 20);
+            this.txbPrecoEdit.TabIndex = 13;
+            // 
+            // txbAnoEdit
+            // 
+            this.txbAnoEdit.Location = new System.Drawing.Point(118, 196);
+            this.txbAnoEdit.Name = "txbAnoEdit";
+            this.txbAnoEdit.Size = new System.Drawing.Size(129, 20);
+            this.txbAnoEdit.TabIndex = 11;
+            // 
+            // lblAnoEditar
+            // 
+            this.lblAnoEditar.AutoSize = true;
+            this.lblAnoEditar.Location = new System.Drawing.Point(17, 196);
+            this.lblAnoEditar.Name = "lblAnoEditar";
+            this.lblAnoEditar.Size = new System.Drawing.Size(26, 13);
+            this.lblAnoEditar.TabIndex = 12;
+            this.lblAnoEditar.Text = "Ano";
+            // 
             // CadastrarCarro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1017, 543);
+            this.ClientSize = new System.Drawing.Size(1068, 625);
             this.Controls.Add(this.grbApagar);
             this.Controls.Add(this.grbEditar);
             this.Controls.Add(this.lblTitulo);
@@ -346,5 +431,13 @@
         private System.Windows.Forms.GroupBox grbApagar;
         private System.Windows.Forms.Button btnApagar;
         private System.Windows.Forms.Label lblMensagem;
+        private System.Windows.Forms.Label lblPrecoCadastrar;
+        private System.Windows.Forms.TextBox txbPrecoCadastrar;
+        private System.Windows.Forms.TextBox txbAnoCadastrar;
+        private System.Windows.Forms.Label lblAnoCadastrar;
+        private System.Windows.Forms.Label lblPrecoEditar;
+        private System.Windows.Forms.TextBox txbPrecoEdit;
+        private System.Windows.Forms.TextBox txbAnoEdit;
+        private System.Windows.Forms.Label lblAnoEditar;
     }
 }

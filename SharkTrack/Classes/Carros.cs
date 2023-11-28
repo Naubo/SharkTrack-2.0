@@ -25,7 +25,7 @@ namespace SharkTrack.Classes
 
         public DataTable ListarTudo()
         {
-            string comando = "SELECT marca, modelo, ano, placa, preco, quilometragem FROM carro";
+            string comando = "SELECT * FROM carro";
 
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
@@ -41,7 +41,7 @@ namespace SharkTrack.Classes
         }
         public bool Cadastrar()
         {
-            string comando = "INSERT INTO carros (marca, modelo, ano, placa, preco, quilometragem) " +
+            string comando = "INSERT INTO carro (marca, modelo, ano, placa, preco, quilometragem) " +
                 "VALUES (@marca, @modelo, @ano, @placa, @preco, @quilometragem)";
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
@@ -76,7 +76,7 @@ namespace SharkTrack.Classes
 
         public bool Apagar()
         {
-            string comando = "DELETE FROM carros WHERE id = @id";
+            string comando = "DELETE FROM carro WHERE id = @id";
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
             MySqlCommand cmd = new MySqlCommand(comando, con);
@@ -104,8 +104,8 @@ namespace SharkTrack.Classes
         }
         public bool Modificar()
         {
-            string comando = "UPDATE carros(marca, modelo, ano, placa, preco, quilometragem) " +
-                "VALUES (@marca, @modelo, @ano, @placa, @preco, @quilometragem)";
+            string comando = "UPDATE carro  SET marca = @marca, modelo = @modelo, ano = @ano, placa = @placa, preco = @preco, quilometragem = @quilometragem " +
+                "WHERE id = @id";
          
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
@@ -117,6 +117,7 @@ namespace SharkTrack.Classes
             cmd.Parameters.AddWithValue("@placa",Placa );
             cmd.Parameters.AddWithValue("@preco", Preco);
             cmd.Parameters.AddWithValue("@quilometragem", Quilometragem);
+            cmd.Parameters.AddWithValue("@id", Id);
 
             cmd.Prepare();
             try

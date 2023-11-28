@@ -12,13 +12,16 @@ using System.Windows.Forms;
 namespace SharkTrack.Views
 {
     public partial class CadastrarCarro : Form
+
     {
+        //Atributos globais
+        int IdSelecionado = 0;
         public CadastrarCarro()
         {
             InitializeComponent();
             Classes.Carros carros = new Classes.Carros();
 
-            dgvCarros.DataSource = carros;
+            dgvCarros.DataSource = carros.ListarTudo();
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -32,6 +35,8 @@ namespace SharkTrack.Views
             carros.Marca  = txbMarca.Text;
             carros.Modelo = txbModelo.Text;
             carros.Placa = txbPlaca.Text;
+            carros.Preco = double.Parse(txbPrecoCadastrar.Text);
+            carros.Ano = int.Parse(txbAnoCadastrar.Text);
             carros.Quilometragem = int.Parse(txbQuilometragem.Text);
 
             if (carros.Cadastrar() == true)
@@ -41,6 +46,8 @@ namespace SharkTrack.Views
                 //limpar os campos
                 txbMarca.Clear();
                 txbModelo.Clear();
+                txbAnoCadastrar.Clear();
+                txbPrecoCadastrar.Clear();
                 txbPlaca.Clear();
                 txbQuilometragem.Clear();
 
@@ -56,27 +63,29 @@ namespace SharkTrack.Views
 
         private void btnApagar_Click(object sender, EventArgs e)
         {
-            Classes.Usuario usuario = new Classes.Usuario();
-            usuario.Id = IdSelecionado;
+            Classes.Carros carros = new Classes.Carros();
+            carros.Id = IdSelecionado;
 
             //mostrar messagebox
             var r = MessageBox.Show("Tem certeza que deseja remover?", "ATENÇÃO", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (r == DialogResult.Yes)
             {
                 //apagar
-                if (Carros.Apagar() == true)
+                if (carros.Apagar() == true)
                 {
-                    MessageBox.Show("Usuário Removido!", "SUCESSO",
+                    MessageBox.Show("Carro Removido!", "SUCESSO",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // atualizar dgv
-                    dgvCarros.DataSource = Carros.ListarTudo();
+                    dgvCarros.DataSource = carros.ListarTudo();
 
-                    //limpar campos de edicao
-                    txbMarca.Clear();
-                    txbModelo.Clear();
-                    txbPlaca.Clear();
-                    txbQuilometragem.Clear();
+                    //limpar campos de edição
+                    txbMarcaEdit.Clear();
+                    txbModeloEdit.Clear();
+                    txbAnoEdit.Clear();
+                    txbPrecoEdit.Clear();
+                    txbPlacaEdit.Clear();
+                    txbQuilometragemEdit.Clear();
                     lblMensagem.Text = "Selecione um carro para apagar:";
 
                     //desabilitar group box edição e apagar
@@ -85,11 +94,84 @@ namespace SharkTrack.Views
                 }
                 else
                 {
-                    MessageBox.Show("Falha ao remover usuário!", "ERROR",
+                    MessageBox.Show("Falha ao remover carro!", "ERROR",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
 
+            
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            //instanciar usuario
+            Classes.Carros carros = new Classes.Carros();
+            //obter valores dos campos
+            carros.Id = IdSelecionado;
+            carros.Marca = txbMarcaEdit.Text;
+            carros.Modelo = txbModeloEdit.Text;
+            carros.Placa = txbPlacaEdit.Text;
+            carros.Preco = double.Parse(txbPrecoEdit.Text);
+            carros.Ano = int.Parse(txbAnoEdit.Text);
+            carros.Quilometragem = int.Parse(txbQuilometragemEdit.Text);
+
+
+            if (carros.Modificar() == true)
+            {
+                MessageBox.Show("Carro modificado!", "Sucesso!", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
+
+                // atualizar dgv
+                dgvCarros.DataSource = carros.ListarTudo();
+
+                //limpar campos de edicao
+                txbMarcaEdit.Clear();
+                txbModeloEdit.Clear();
+                txbAnoEdit.Clear();
+                txbPrecoEdit.Clear();
+                txbPlacaEdit.Clear();
+                txbQuilometragemEdit.Clear();
+                lblMensagem.Text = "Selecione um carro para apagar:";
+
+                //desabilitar group box edição e apagar
+                grbEditar.Enabled = false;
+                grbApagar.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Falha ao modificar Carro!", "ERROR!", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void dgvCarros_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //ativar os groupbox editar e apagar
+            grbApagar.Enabled = true;
+            grbEditar.Enabled = true;
+
+            //obter linha clicada
+            int linhaSelecionada = dgvCarros.CurrentCell.RowIndex;
+
+            //armazenar os dados da linha clicada em linha (tipo um vetor)
+            var linha = dgvCarros.Rows[linhaSelecionada];
+
+            txbMarcaEdit.Text = linha.Cells[1].Value.ToString();
+            txbModeloEdit.Text = linha.Cells[2].Value.ToString();
+            txbAnoEdit.Text = linha.Cells[3].Value.ToString();
+            txbPlacaEdit.Text = linha.Cells[4].Value.ToString();
+            txbPrecoEdit.Text = linha.Cells[5].Value.ToString();
+            txbQuilometragemEdit.Text = linha.Cells[6].Value.ToString();
+
+
+
+            lblMensagem.Text = linha.Cells[0].Value.ToString() + " - " +
+                linha.Cells[1].Value.ToString() + "  " +
+                linha.Cells[2].Value.ToString(); 
+
+            //Salvar o id na variavel global
+            IdSelecionado = (int)linha.Cells[0].Value;
         }
     }
 }
