@@ -13,15 +13,18 @@ namespace SharkTrack.Classes
 {
     internal class Clientes
     {
+
+
         public int Id { get; set; }
         public string Nome_completo { get; set; }
         public string Cpf { get; set; }
         public int Id_carro { get; set; }
         public int Id_telefone { get; set; }
+        public Telefone Telefone = new Telefone();
 
         public DataTable ListarTudo()
         {
-            string comando = "SELECT * FROM cliente";
+            string comando = "SELECT * FROM view_clientes";
 
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
@@ -38,15 +41,13 @@ namespace SharkTrack.Classes
 
         public bool Cadastrar()
         {
-            string comando = "INSERT INTO cliente (nome_completo, cpf, id_carro, , id_telefone) " +
-                "VALUES (@nome_completo, @cpf, @id_carro, @id_telefone)";
+            string comando = "CALL cadastrar_cliente(@nome_completo, @cpf, @telefone)";
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
             MySqlCommand cmd = new MySqlCommand(comando, con);
             cmd.Parameters.AddWithValue("@nome_completo", Nome_completo);
             cmd.Parameters.AddWithValue("@cpf", Cpf);
-            cmd.Parameters.AddWithValue("@id_carro", Id_carro);
-            cmd.Parameters.AddWithValue("@id_telefone", Id_telefone);
+            cmd.Parameters.AddWithValue("@telefone", Telefone.Telefones);
 
             cmd.Prepare();
             try
@@ -100,7 +101,7 @@ namespace SharkTrack.Classes
 
         public bool Modificar()
         {
-            string comando = "UPDATE cliente  SET nome_completo = @nome_completo, cpf = @cpf, id_carro = @id_carro, id_telefone = @id_telefone" +
+            string comando = "UPDATE cliente SET nome_completo = @nome_completo, cpf = @cpf " +
                 "WHERE id = @id";
 
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
@@ -109,8 +110,6 @@ namespace SharkTrack.Classes
 
             cmd.Parameters.AddWithValue("@nome_completo", Nome_completo);
             cmd.Parameters.AddWithValue("@cpf", Cpf);
-            cmd.Parameters.AddWithValue("@id_carro", Id_carro);
-            cmd.Parameters.AddWithValue("@id_telefone", Id_telefone);
             cmd.Parameters.AddWithValue("@id", Id);
 
             cmd.Prepare();

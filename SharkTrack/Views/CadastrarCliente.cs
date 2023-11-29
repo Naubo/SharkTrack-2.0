@@ -27,14 +27,13 @@ namespace SharkTrack.Views
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             //instanciar Cliente:
-            Classes.Telefone telefone = new Classes.Telefone();
             Classes.Clientes cliente = new Classes.Clientes();
 
             //obter valores dos campos
 
             cliente.Nome_completo = txbNome.Text;
             cliente.Cpf = txbCPF.Text;
-            telefone.telefone = int.Parse(txbTelefone.Text);
+            cliente.Telefone.Telefones = txbTelefone.Text;
 
             if (cliente.Cadastrar() == true)
             {
@@ -54,7 +53,31 @@ namespace SharkTrack.Views
             }
         }
 
-        private void btnApagar_Click(object sender, EventArgs e)
+        private void dgvCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //ativar os groupbox editar e apagar
+            grbApagar.Enabled = true;
+            grbEditar.Enabled = true;
+            grbEditTelefone.Enabled = true;
+
+            //obter linha clicada
+            int linhaSelecionada = dgvCliente.CurrentCell.RowIndex;
+
+            //armazenar os dados da linha clicada em linha (tipo um vetor)
+            var linha = dgvCliente.Rows[linhaSelecionada];
+
+            txbNomeEdit.Text = linha.Cells[1].Value.ToString();
+            txbCpfEdit.Text = linha.Cells[2].Value.ToString();
+            txbEditTel.Text = linha.Cells[3].Value.ToString();
+
+            lblMensagem.Text = linha.Cells[1].Value.ToString() + " - " +
+                linha.Cells[3].Value.ToString();
+
+            //Salvar o id na variavel global
+            IdSelecionado = (int)linha.Cells[0].Value;
+        }
+
+        private void btnApagar_Click_1(object sender, EventArgs e)
         {
             Classes.Clientes cliente = new Classes.Clientes();
             cliente.Id = IdSelecionado;
@@ -73,14 +96,15 @@ namespace SharkTrack.Views
                     dgvCliente.DataSource = cliente.ListarTudo();
 
                     //limpar campos de edição
-                    txbNome.Clear();
-                    txbCPF.Clear();
-                    txbTelefone.Clear();
+                    txbNomeEdit.Clear();
+                    txbCpfEdit.Clear();
+                    txbEditTel.Clear();
                     lblMensagem.Text = "Selecione um cliente para apagar:";
 
                     //desabilitar group box edição e apagar
                     grbEditar.Enabled = false;
                     grbApagar.Enabled = false;
+                    grbEditTelefone.Enabled = false;
                 }
                 else
                 {
@@ -90,28 +114,72 @@ namespace SharkTrack.Views
             }
         }
 
-        private void dgvCliente_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void btnEditar_Click(object sender, EventArgs e)
         {
-            //ativar os groupbox editar e apagar
-            grbApagar.Enabled = true;
-            grbEditar.Enabled = true;
+            //instanciar usuario
+            Classes.Clientes cliente = new Classes.Clientes();
+            //obter valores dos campos
+            cliente.Nome_completo = txbNomeEdit.Text;
+            cliente.Cpf = txbCpfEdit.Text;
+            cliente.Id = IdSelecionado;
 
-            //obter linha clicada
-            int linhaSelecionada = dgvCliente.CurrentCell.RowIndex;
 
-            //armazenar os dados da linha clicada em linha (tipo um vetor)
-            var linha = dgvCliente.Rows[linhaSelecionada];
+            if (cliente.Modificar() == true)
+            {
+                MessageBox.Show("Cliente modificado!", "Sucesso!", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
 
-            txbNomeEdit.Text = linha.Cells[1].Value.ToString();
-            txbCpfEdit.Text = linha.Cells[2].Value.ToString();
-            txbTelefoneEdit.Text = linha.Cells[3].Value.ToString();
+                // atualizar dgv
+                dgvCliente.DataSource = cliente.ListarTudo();
 
-            lblMensagem.Text = linha.Cells[0].Value.ToString() + " - " +
-                linha.Cells[1].Value.ToString() + "  " +
-                linha.Cells[2].Value.ToString();
+                //limpar campos de edicao
+                txbNomeEdit.Clear();
+                txbCpfEdit.Clear();
+                lblMensagem.Text = "Selecione um cliente para apagar:";
 
-            //Salvar o id na variavel global
-            IdSelecionado = (int)linha.Cells[0].Value;
+                //desabilitar group box edição e apagar
+                grbEditar.Enabled = false;
+                grbApagar.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Falha ao modificar Cliente!", "ERROR!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void txbTelefoneEdit_Click(object sender, EventArgs e)
+        {
+            //instanciar usuario
+            Classes.Telefone telefone = new Classes.Telefone();
+            Classes.Clientes cliente = new Classes.Clientes();
+            telefone.Telefones = txbEditTel.Text;
+            telefone.Id_cliente = IdSelecionado;
+
+
+            if (telefone.Modificar() == true)
+            {
+                MessageBox.Show("Telefone modificado!", "Sucesso!", MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+
+                // atualizar dgv
+                dgvCliente.DataSource = cliente.ListarTudo();
+
+                //limpar campos de edicao
+                txbEditTel.Clear();
+                lblMensagem.Text = "Selecione um cliente para apagar:";
+
+                //desabilitar group box edição e apagar
+                grbEditar.Enabled = false;
+                grbApagar.Enabled = false;
+                grbEditTelefone.Enabled = false;
+            }
+            else
+            {
+                MessageBox.Show("Falha ao modificar Telefone!", "ERROR!",
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
+
 }

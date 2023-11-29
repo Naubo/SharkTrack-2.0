@@ -41,18 +41,21 @@
             this.grbEditar = new System.Windows.Forms.GroupBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.lblCpfEdit = new System.Windows.Forms.Label();
-            this.txbTelefoneEdit = new System.Windows.Forms.TextBox();
             this.txbNomeEdit = new System.Windows.Forms.TextBox();
             this.lblNomeEdit = new System.Windows.Forms.Label();
             this.txbCpfEdit = new System.Windows.Forms.TextBox();
-            this.lblTelefoneEdit = new System.Windows.Forms.Label();
             this.grbApagar = new System.Windows.Forms.GroupBox();
             this.btnApagar = new System.Windows.Forms.Button();
             this.lblMensagem = new System.Windows.Forms.Label();
+            this.grbEditTelefone = new System.Windows.Forms.GroupBox();
+            this.txbTelefoneEdit = new System.Windows.Forms.Button();
+            this.lblCpfEditTel = new System.Windows.Forms.Label();
+            this.txbEditTel = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.grbCadastrar.SuspendLayout();
             this.grbEditar.SuspendLayout();
             this.grbApagar.SuspendLayout();
+            this.grbEditTelefone.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -70,6 +73,7 @@
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Location = new System.Drawing.Point(642, 47);
             this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.ReadOnly = true;
             this.dgvCliente.Size = new System.Drawing.Size(437, 468);
             this.dgvCliente.TabIndex = 1;
             this.dgvCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellClick);
@@ -153,11 +157,10 @@
             // 
             this.grbEditar.Controls.Add(this.btnEditar);
             this.grbEditar.Controls.Add(this.lblCpfEdit);
-            this.grbEditar.Controls.Add(this.txbTelefoneEdit);
             this.grbEditar.Controls.Add(this.txbNomeEdit);
             this.grbEditar.Controls.Add(this.lblNomeEdit);
             this.grbEditar.Controls.Add(this.txbCpfEdit);
-            this.grbEditar.Controls.Add(this.lblTelefoneEdit);
+            this.grbEditar.Enabled = false;
             this.grbEditar.Location = new System.Drawing.Point(321, 89);
             this.grbEditar.Name = "grbEditar";
             this.grbEditar.Size = new System.Drawing.Size(282, 233);
@@ -174,6 +177,7 @@
             this.btnEditar.TabIndex = 10;
             this.btnEditar.Text = "Editar Cliente";
             this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // lblCpfEdit
             // 
@@ -183,13 +187,6 @@
             this.lblCpfEdit.Size = new System.Drawing.Size(30, 13);
             this.lblCpfEdit.TabIndex = 2;
             this.lblCpfEdit.Text = "CPF:";
-            // 
-            // txbTelefoneEdit
-            // 
-            this.txbTelefoneEdit.Location = new System.Drawing.Point(130, 85);
-            this.txbTelefoneEdit.Name = "txbTelefoneEdit";
-            this.txbTelefoneEdit.Size = new System.Drawing.Size(137, 20);
-            this.txbTelefoneEdit.TabIndex = 7;
             // 
             // txbNomeEdit
             // 
@@ -214,21 +211,12 @@
             this.txbCpfEdit.Size = new System.Drawing.Size(137, 20);
             this.txbCpfEdit.TabIndex = 6;
             // 
-            // lblTelefoneEdit
-            // 
-            this.lblTelefoneEdit.AutoSize = true;
-            this.lblTelefoneEdit.Location = new System.Drawing.Point(17, 92);
-            this.lblTelefoneEdit.Name = "lblTelefoneEdit";
-            this.lblTelefoneEdit.Size = new System.Drawing.Size(52, 13);
-            this.lblTelefoneEdit.TabIndex = 3;
-            this.lblTelefoneEdit.Text = "Telefone:";
-            // 
             // grbApagar
             // 
             this.grbApagar.Controls.Add(this.btnApagar);
             this.grbApagar.Controls.Add(this.lblMensagem);
             this.grbApagar.Enabled = false;
-            this.grbApagar.Location = new System.Drawing.Point(163, 369);
+            this.grbApagar.Location = new System.Drawing.Point(35, 367);
             this.grbApagar.Name = "grbApagar";
             this.grbApagar.Size = new System.Drawing.Size(280, 134);
             this.grbApagar.TabIndex = 11;
@@ -243,6 +231,7 @@
             this.btnApagar.TabIndex = 7;
             this.btnApagar.Text = "APAGAR";
             this.btnApagar.UseVisualStyleBackColor = true;
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click_1);
             // 
             // lblMensagem
             // 
@@ -254,11 +243,52 @@
             this.lblMensagem.TabIndex = 0;
             this.lblMensagem.Text = "Selecione um carro para apagar!";
             // 
+            // grbEditTelefone
+            // 
+            this.grbEditTelefone.Controls.Add(this.lblCpfEditTel);
+            this.grbEditTelefone.Controls.Add(this.txbEditTel);
+            this.grbEditTelefone.Controls.Add(this.txbTelefoneEdit);
+            this.grbEditTelefone.Enabled = false;
+            this.grbEditTelefone.Location = new System.Drawing.Point(321, 367);
+            this.grbEditTelefone.Name = "grbEditTelefone";
+            this.grbEditTelefone.Size = new System.Drawing.Size(282, 134);
+            this.grbEditTelefone.TabIndex = 12;
+            this.grbEditTelefone.TabStop = false;
+            this.grbEditTelefone.Text = "Editar Telefone";
+            // 
+            // txbTelefoneEdit
+            // 
+            this.txbTelefoneEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTelefoneEdit.Location = new System.Drawing.Point(18, 78);
+            this.txbTelefoneEdit.Name = "txbTelefoneEdit";
+            this.txbTelefoneEdit.Size = new System.Drawing.Size(227, 39);
+            this.txbTelefoneEdit.TabIndex = 7;
+            this.txbTelefoneEdit.Text = "Editar Telefone";
+            this.txbTelefoneEdit.UseVisualStyleBackColor = true;
+            this.txbTelefoneEdit.Click += new System.EventHandler(this.txbTelefoneEdit_Click);
+            // 
+            // lblCpfEditTel
+            // 
+            this.lblCpfEditTel.AutoSize = true;
+            this.lblCpfEditTel.Location = new System.Drawing.Point(29, 42);
+            this.lblCpfEditTel.Name = "lblCpfEditTel";
+            this.lblCpfEditTel.Size = new System.Drawing.Size(52, 13);
+            this.lblCpfEditTel.TabIndex = 8;
+            this.lblCpfEditTel.Text = "Telefone:";
+            // 
+            // txbEditTel
+            // 
+            this.txbEditTel.Location = new System.Drawing.Point(87, 39);
+            this.txbEditTel.Name = "txbEditTel";
+            this.txbEditTel.Size = new System.Drawing.Size(137, 20);
+            this.txbEditTel.TabIndex = 9;
+            // 
             // CadastrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1097, 561);
+            this.Controls.Add(this.grbEditTelefone);
             this.Controls.Add(this.grbApagar);
             this.Controls.Add(this.grbEditar);
             this.Controls.Add(this.grbCadastrar);
@@ -274,6 +304,8 @@
             this.grbEditar.PerformLayout();
             this.grbApagar.ResumeLayout(false);
             this.grbApagar.PerformLayout();
+            this.grbEditTelefone.ResumeLayout(false);
+            this.grbEditTelefone.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,13 +326,15 @@
         private System.Windows.Forms.GroupBox grbEditar;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Label lblCpfEdit;
-        private System.Windows.Forms.TextBox txbTelefoneEdit;
         private System.Windows.Forms.TextBox txbNomeEdit;
         private System.Windows.Forms.Label lblNomeEdit;
         private System.Windows.Forms.TextBox txbCpfEdit;
-        private System.Windows.Forms.Label lblTelefoneEdit;
         private System.Windows.Forms.GroupBox grbApagar;
         private System.Windows.Forms.Button btnApagar;
         private System.Windows.Forms.Label lblMensagem;
+        private System.Windows.Forms.GroupBox grbEditTelefone;
+        private System.Windows.Forms.Label lblCpfEditTel;
+        private System.Windows.Forms.TextBox txbEditTel;
+        private System.Windows.Forms.Button txbTelefoneEdit;
     }
 }
