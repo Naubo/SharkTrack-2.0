@@ -111,14 +111,15 @@
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.BackColor = System.Drawing.Color.Lime;
+            this.btnConfirmar.BackColor = System.Drawing.Color.LimeGreen;
+            this.btnConfirmar.Enabled = false;
             this.btnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnConfirmar.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfirmar.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConfirmar.Location = new System.Drawing.Point(590, 540);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(247, 55);
             this.btnConfirmar.TabIndex = 10;
-            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.Text = "CONFIRMAR";
             this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
@@ -357,14 +358,14 @@
             // 
             // btnCalcularAluguel
             // 
-            this.btnCalcularAluguel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.btnCalcularAluguel.BackColor = System.Drawing.Color.Khaki;
             this.btnCalcularAluguel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCalcularAluguel.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalcularAluguel.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCalcularAluguel.Location = new System.Drawing.Point(312, 541);
             this.btnCalcularAluguel.Name = "btnCalcularAluguel";
             this.btnCalcularAluguel.Size = new System.Drawing.Size(247, 55);
             this.btnCalcularAluguel.TabIndex = 20;
-            this.btnCalcularAluguel.Text = "Calcular";
+            this.btnCalcularAluguel.Text = "CALCULAR";
             this.btnCalcularAluguel.UseVisualStyleBackColor = false;
             this.btnCalcularAluguel.Click += new System.EventHandler(this.btnCalcularAluguel_Click);
             // 

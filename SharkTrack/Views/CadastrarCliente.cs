@@ -26,30 +26,38 @@ namespace SharkTrack.Views
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            //instanciar Cliente:
-            Classes.Clientes cliente = new Classes.Clientes();
-
-            //obter valores dos campos
-
-            cliente.Nome_completo = txbNome.Text;
-            cliente.Cpf = txbCPF.Text;
-            cliente.Telefone.Telefones = txbTelefone.Text;
-
-            if (cliente.Cadastrar() == true)
+            // Caso os campos estejam vazios, correção do erro //
+            if (txbNome.Text != "" || txbCPF.Text != "" || txbTelefone.Text != "")
             {
-                MessageBox.Show("Cliente cadastrado com sucesso!");
+                //instanciar Cliente:
+                Classes.Clientes cliente = new Classes.Clientes();
 
-                //limpar os campos
-                txbNome.Clear();
-                txbCPF.Clear();
-                txbTelefone.Clear();
+                //obter valores dos campos
 
-                //atualizar dgv
-                dgvCliente.DataSource = cliente.ListarTudo();
+                cliente.Nome_completo = txbNome.Text;
+                cliente.Cpf = txbCPF.Text;
+                cliente.Telefone.Telefones = txbTelefone.Text;
+
+                if (cliente.Cadastrar() == true)
+                {
+                    MessageBox.Show("Cliente cadastrado com sucesso!");
+
+                    //limpar os campos
+                    txbNome.Clear();
+                    txbCPF.Clear();
+                    txbTelefone.Clear();
+
+                    //atualizar dgv
+                    dgvCliente.DataSource = cliente.ListarTudo();
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao cadastrar cliente");
+                }
             }
             else
             {
-                MessageBox.Show("Falha ao cadastrar cliente");
+                MessageBox.Show("Campos Vazios!", "Inválido!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -116,70 +124,89 @@ namespace SharkTrack.Views
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            //instanciar usuario
-            Classes.Clientes cliente = new Classes.Clientes();
-            //obter valores dos campos
-            cliente.Nome_completo = txbNomeEdit.Text;
-            cliente.Cpf = txbCpfEdit.Text;
-            cliente.Id = IdSelecionado;
 
-
-            if (cliente.Modificar() == true)
+            //correção caso algum dos dois campos estejam vazios:
+            if (txbNomeEdit.Text != "" || txbCpfEdit.Text != "")
             {
-                MessageBox.Show("Cliente modificado!", "Sucesso!", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                //instanciar usuario
+                Classes.Clientes cliente = new Classes.Clientes();
+                //obter valores dos campos
+                cliente.Nome_completo = txbNomeEdit.Text;
+                cliente.Cpf = txbCpfEdit.Text;
+                cliente.Id = IdSelecionado;
 
-                // atualizar dgv
-                dgvCliente.DataSource = cliente.ListarTudo();
 
-                //limpar campos de edicao
-                txbNomeEdit.Clear();
-                txbCpfEdit.Clear();
-                lblMensagem.Text = "Selecione um cliente para apagar:";
+                if (cliente.Modificar() == true)
+                {
+                    MessageBox.Show("Cliente modificado!", "Sucesso!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
 
-                //desabilitar group box edição e apagar
-                grbEditar.Enabled = false;
-                grbApagar.Enabled = false;
+                    // atualizar dgv
+                    dgvCliente.DataSource = cliente.ListarTudo();
+
+                    //limpar campos de edicao
+                    txbNomeEdit.Clear();
+                    txbCpfEdit.Clear();
+                    txbEditTel.Clear();
+                    lblMensagem.Text = "Selecione um cliente para apagar:";
+
+                    //desabilitar group box edição e apagar
+                    grbEditar.Enabled = false;
+                    grbApagar.Enabled = false;
+                    grbEditTelefone.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao modificar Cliente!", "ERROR!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                MessageBox.Show("Falha ao modificar Cliente!", "ERROR!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Campos Vazios!", "Inválido!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
         private void txbTelefoneEdit_Click(object sender, EventArgs e)
         {
-            //instanciar usuario
-            Classes.Telefone telefone = new Classes.Telefone();
-            Classes.Clientes cliente = new Classes.Clientes();
-            telefone.Telefones = txbEditTel.Text;
-            telefone.Id_cliente = IdSelecionado;
-
-
-            if (telefone.Modificar() == true)
+            if (txbEditTel.Text != "")
             {
-                MessageBox.Show("Telefone modificado!", "Sucesso!", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
+                //instanciar usuario
+                Classes.Telefone telefone = new Classes.Telefone();
+                Classes.Clientes cliente = new Classes.Clientes();
+                telefone.Telefones = txbEditTel.Text;
+                telefone.Id_cliente = IdSelecionado;
 
-                // atualizar dgv
-                dgvCliente.DataSource = cliente.ListarTudo();
 
-                //limpar campos de edicao
-                txbEditTel.Clear();
-                lblMensagem.Text = "Selecione um cliente para apagar:";
+                if (telefone.Modificar() == true)
+                {
+                    MessageBox.Show("Telefone modificado!", "Sucesso!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
 
-                //desabilitar group box edição e apagar
-                grbEditar.Enabled = false;
-                grbApagar.Enabled = false;
-                grbEditTelefone.Enabled = false;
+                    // atualizar dgv
+                    dgvCliente.DataSource = cliente.ListarTudo();
+
+                    //limpar campos de edicao
+                    txbEditTel.Clear();
+                    lblMensagem.Text = "Selecione um cliente para apagar:";
+
+                    //desabilitar group box edição e apagar
+                    grbEditar.Enabled = false;
+                    grbApagar.Enabled = false;
+                    grbEditTelefone.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao modificar Telefone!", "ERROR!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                MessageBox.Show("Falha ao modificar Telefone!", "ERROR!",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Campos Vazios!", "Inválido!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+
+
         }
     }
-
 }
