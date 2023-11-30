@@ -48,97 +48,112 @@
             this.btnApagar = new System.Windows.Forms.Button();
             this.lblMensagem = new System.Windows.Forms.Label();
             this.grbEditTelefone = new System.Windows.Forms.GroupBox();
-            this.txbTelefoneEdit = new System.Windows.Forms.Button();
             this.lblCpfEditTel = new System.Windows.Forms.Label();
             this.txbEditTel = new System.Windows.Forms.TextBox();
+            this.txbTelefoneEdit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.grbCadastrar.SuspendLayout();
             this.grbEditar.SuspendLayout();
             this.grbApagar.SuspendLayout();
             this.grbEditTelefone.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
             // 
             this.lblTitulo.AutoSize = true;
-            this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitulo.Location = new System.Drawing.Point(38, 37);
+            this.lblTitulo.BackColor = System.Drawing.Color.DimGray;
+            this.lblTitulo.Font = new System.Drawing.Font("Lucida Bright", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTitulo.Location = new System.Drawing.Point(350, 62);
             this.lblTitulo.Name = "lblTitulo";
-            this.lblTitulo.Size = new System.Drawing.Size(235, 25);
+            this.lblTitulo.Size = new System.Drawing.Size(318, 31);
             this.lblTitulo.TabIndex = 0;
             this.lblTitulo.Text = "CADASTRAR CLIENTE";
             // 
             // dgvCliente
             // 
+            this.dgvCliente.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCliente.Location = new System.Drawing.Point(642, 47);
+            this.dgvCliente.Location = new System.Drawing.Point(614, 180);
             this.dgvCliente.Name = "dgvCliente";
             this.dgvCliente.ReadOnly = true;
-            this.dgvCliente.Size = new System.Drawing.Size(437, 468);
+            this.dgvCliente.Size = new System.Drawing.Size(442, 460);
             this.dgvCliente.TabIndex = 1;
             this.dgvCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellClick);
             // 
             // lblCPF
             // 
             this.lblCPF.AutoSize = true;
-            this.lblCPF.Location = new System.Drawing.Point(17, 58);
+            this.lblCPF.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCPF.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCPF.Location = new System.Drawing.Point(9, 59);
             this.lblCPF.Name = "lblCPF";
-            this.lblCPF.Size = new System.Drawing.Size(30, 13);
+            this.lblCPF.Size = new System.Drawing.Size(37, 15);
             this.lblCPF.TabIndex = 2;
             this.lblCPF.Text = "CPF:";
             // 
             // lblTelefone
             // 
             this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(17, 92);
+            this.lblTelefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefone.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblTelefone.Location = new System.Drawing.Point(7, 92);
             this.lblTelefone.Name = "lblTelefone";
-            this.lblTelefone.Size = new System.Drawing.Size(52, 13);
+            this.lblTelefone.Size = new System.Drawing.Size(67, 15);
             this.lblTelefone.TabIndex = 3;
             this.lblTelefone.Text = "Telefone:";
             // 
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(17, 27);
+            this.lblNome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNome.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblNome.Location = new System.Drawing.Point(9, 26);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(85, 13);
+            this.lblNome.Size = new System.Drawing.Size(114, 15);
             this.lblNome.TabIndex = 4;
             this.lblNome.Text = "Nome Completo:";
             // 
             // txbNome
             // 
-            this.txbNome.Location = new System.Drawing.Point(130, 20);
+            this.txbNome.Location = new System.Drawing.Point(129, 26);
             this.txbNome.Name = "txbNome";
             this.txbNome.Size = new System.Drawing.Size(137, 20);
             this.txbNome.TabIndex = 5;
             // 
             // txbCPF
             // 
-            this.txbCPF.Location = new System.Drawing.Point(130, 55);
+            this.txbCPF.Location = new System.Drawing.Point(127, 58);
             this.txbCPF.Name = "txbCPF";
             this.txbCPF.Size = new System.Drawing.Size(137, 20);
             this.txbCPF.TabIndex = 6;
             // 
             // txbTelefone
             // 
-            this.txbTelefone.Location = new System.Drawing.Point(130, 85);
+            this.txbTelefone.Location = new System.Drawing.Point(127, 91);
             this.txbTelefone.Name = "txbTelefone";
             this.txbTelefone.Size = new System.Drawing.Size(137, 20);
             this.txbTelefone.TabIndex = 7;
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCadastrar.Location = new System.Drawing.Point(20, 159);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(247, 55);
             this.btnCadastrar.TabIndex = 10;
             this.btnCadastrar.Text = "Cadastrar Cliente";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // grbCadastrar
             // 
+            this.grbCadastrar.BackColor = System.Drawing.Color.Transparent;
             this.grbCadastrar.Controls.Add(this.btnCadastrar);
             this.grbCadastrar.Controls.Add(this.lblCPF);
             this.grbCadastrar.Controls.Add(this.txbTelefone);
@@ -146,7 +161,8 @@
             this.grbCadastrar.Controls.Add(this.lblNome);
             this.grbCadastrar.Controls.Add(this.txbCPF);
             this.grbCadastrar.Controls.Add(this.lblTelefone);
-            this.grbCadastrar.Location = new System.Drawing.Point(33, 89);
+            this.grbCadastrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.grbCadastrar.Location = new System.Drawing.Point(26, 201);
             this.grbCadastrar.Name = "grbCadastrar";
             this.grbCadastrar.Size = new System.Drawing.Size(282, 233);
             this.grbCadastrar.TabIndex = 11;
@@ -155,42 +171,49 @@
             // 
             // grbEditar
             // 
+            this.grbEditar.BackColor = System.Drawing.Color.Transparent;
             this.grbEditar.Controls.Add(this.btnEditar);
             this.grbEditar.Controls.Add(this.lblCpfEdit);
             this.grbEditar.Controls.Add(this.txbNomeEdit);
             this.grbEditar.Controls.Add(this.lblNomeEdit);
             this.grbEditar.Controls.Add(this.txbCpfEdit);
             this.grbEditar.Enabled = false;
-            this.grbEditar.Location = new System.Drawing.Point(321, 89);
+            this.grbEditar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.grbEditar.Location = new System.Drawing.Point(314, 201);
             this.grbEditar.Name = "grbEditar";
             this.grbEditar.Size = new System.Drawing.Size(282, 233);
             this.grbEditar.TabIndex = 12;
             this.grbEditar.TabStop = false;
-            this.grbEditar.Text = "Editar";
+            this.grbEditar.Text = "EDITAR";
             // 
             // btnEditar
             // 
+            this.btnEditar.BackColor = System.Drawing.Color.LightSkyBlue;
+            this.btnEditar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnEditar.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditar.ForeColor = System.Drawing.Color.Black;
             this.btnEditar.Location = new System.Drawing.Point(20, 159);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(247, 55);
             this.btnEditar.TabIndex = 10;
             this.btnEditar.Text = "Editar Cliente";
-            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.UseVisualStyleBackColor = false;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // lblCpfEdit
             // 
             this.lblCpfEdit.AutoSize = true;
-            this.lblCpfEdit.Location = new System.Drawing.Point(17, 58);
+            this.lblCpfEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCpfEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblCpfEdit.Location = new System.Drawing.Point(6, 60);
             this.lblCpfEdit.Name = "lblCpfEdit";
-            this.lblCpfEdit.Size = new System.Drawing.Size(30, 13);
+            this.lblCpfEdit.Size = new System.Drawing.Size(37, 15);
             this.lblCpfEdit.TabIndex = 2;
             this.lblCpfEdit.Text = "CPF:";
             // 
             // txbNomeEdit
             // 
-            this.txbNomeEdit.Location = new System.Drawing.Point(130, 20);
+            this.txbNomeEdit.Location = new System.Drawing.Point(126, 30);
             this.txbNomeEdit.Name = "txbNomeEdit";
             this.txbNomeEdit.Size = new System.Drawing.Size(137, 20);
             this.txbNomeEdit.TabIndex = 5;
@@ -198,25 +221,29 @@
             // lblNomeEdit
             // 
             this.lblNomeEdit.AutoSize = true;
-            this.lblNomeEdit.Location = new System.Drawing.Point(17, 27);
+            this.lblNomeEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNomeEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblNomeEdit.Location = new System.Drawing.Point(6, 30);
             this.lblNomeEdit.Name = "lblNomeEdit";
-            this.lblNomeEdit.Size = new System.Drawing.Size(85, 13);
+            this.lblNomeEdit.Size = new System.Drawing.Size(114, 15);
             this.lblNomeEdit.TabIndex = 4;
             this.lblNomeEdit.Text = "Nome Completo:";
             // 
             // txbCpfEdit
             // 
-            this.txbCpfEdit.Location = new System.Drawing.Point(130, 55);
+            this.txbCpfEdit.Location = new System.Drawing.Point(126, 60);
             this.txbCpfEdit.Name = "txbCpfEdit";
             this.txbCpfEdit.Size = new System.Drawing.Size(137, 20);
             this.txbCpfEdit.TabIndex = 6;
             // 
             // grbApagar
             // 
+            this.grbApagar.BackColor = System.Drawing.Color.Transparent;
             this.grbApagar.Controls.Add(this.btnApagar);
             this.grbApagar.Controls.Add(this.lblMensagem);
             this.grbApagar.Enabled = false;
-            this.grbApagar.Location = new System.Drawing.Point(35, 367);
+            this.grbApagar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.grbApagar.Location = new System.Drawing.Point(26, 481);
             this.grbApagar.Name = "grbApagar";
             this.grbApagar.Size = new System.Drawing.Size(280, 134);
             this.grbApagar.TabIndex = 11;
@@ -225,75 +252,99 @@
             // 
             // btnApagar
             // 
+            this.btnApagar.BackColor = System.Drawing.Color.Red;
+            this.btnApagar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnApagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApagar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnApagar.Location = new System.Drawing.Point(20, 78);
             this.btnApagar.Name = "btnApagar";
             this.btnApagar.Size = new System.Drawing.Size(227, 39);
             this.btnApagar.TabIndex = 7;
             this.btnApagar.Text = "APAGAR";
-            this.btnApagar.UseVisualStyleBackColor = true;
+            this.btnApagar.UseVisualStyleBackColor = false;
             this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click_1);
             // 
             // lblMensagem
             // 
             this.lblMensagem.AutoSize = true;
-            this.lblMensagem.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMensagem.Location = new System.Drawing.Point(6, 32);
+            this.lblMensagem.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensagem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblMensagem.Location = new System.Drawing.Point(9, 35);
             this.lblMensagem.Name = "lblMensagem";
-            this.lblMensagem.Size = new System.Drawing.Size(256, 20);
+            this.lblMensagem.Size = new System.Drawing.Size(265, 18);
             this.lblMensagem.TabIndex = 0;
             this.lblMensagem.Text = "Selecione um carro para apagar!";
             // 
             // grbEditTelefone
             // 
+            this.grbEditTelefone.BackColor = System.Drawing.Color.Transparent;
             this.grbEditTelefone.Controls.Add(this.lblCpfEditTel);
             this.grbEditTelefone.Controls.Add(this.txbEditTel);
             this.grbEditTelefone.Controls.Add(this.txbTelefoneEdit);
             this.grbEditTelefone.Enabled = false;
-            this.grbEditTelefone.Location = new System.Drawing.Point(321, 367);
+            this.grbEditTelefone.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.grbEditTelefone.Location = new System.Drawing.Point(312, 481);
             this.grbEditTelefone.Name = "grbEditTelefone";
             this.grbEditTelefone.Size = new System.Drawing.Size(282, 134);
             this.grbEditTelefone.TabIndex = 12;
             this.grbEditTelefone.TabStop = false;
-            this.grbEditTelefone.Text = "Editar Telefone";
-            // 
-            // txbTelefoneEdit
-            // 
-            this.txbTelefoneEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txbTelefoneEdit.Location = new System.Drawing.Point(18, 78);
-            this.txbTelefoneEdit.Name = "txbTelefoneEdit";
-            this.txbTelefoneEdit.Size = new System.Drawing.Size(227, 39);
-            this.txbTelefoneEdit.TabIndex = 7;
-            this.txbTelefoneEdit.Text = "Editar Telefone";
-            this.txbTelefoneEdit.UseVisualStyleBackColor = true;
-            this.txbTelefoneEdit.Click += new System.EventHandler(this.txbTelefoneEdit_Click);
+            this.grbEditTelefone.Text = "EDITAR TELEFONE";
             // 
             // lblCpfEditTel
             // 
             this.lblCpfEditTel.AutoSize = true;
+            this.lblCpfEditTel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCpfEditTel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblCpfEditTel.Location = new System.Drawing.Point(29, 42);
             this.lblCpfEditTel.Name = "lblCpfEditTel";
-            this.lblCpfEditTel.Size = new System.Drawing.Size(52, 13);
+            this.lblCpfEditTel.Size = new System.Drawing.Size(73, 16);
             this.lblCpfEditTel.TabIndex = 8;
             this.lblCpfEditTel.Text = "Telefone:";
             // 
             // txbEditTel
             // 
-            this.txbEditTel.Location = new System.Drawing.Point(87, 39);
+            this.txbEditTel.Location = new System.Drawing.Point(108, 41);
             this.txbEditTel.Name = "txbEditTel";
             this.txbEditTel.Size = new System.Drawing.Size(137, 20);
             this.txbEditTel.TabIndex = 9;
+            // 
+            // txbTelefoneEdit
+            // 
+            this.txbTelefoneEdit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.txbTelefoneEdit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.txbTelefoneEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txbTelefoneEdit.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txbTelefoneEdit.Location = new System.Drawing.Point(18, 78);
+            this.txbTelefoneEdit.Name = "txbTelefoneEdit";
+            this.txbTelefoneEdit.Size = new System.Drawing.Size(227, 39);
+            this.txbTelefoneEdit.TabIndex = 7;
+            this.txbTelefoneEdit.Text = "Editar Telefone";
+            this.txbTelefoneEdit.UseVisualStyleBackColor = false;
+            this.txbTelefoneEdit.Click += new System.EventHandler(this.txbTelefoneEdit_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SharkTrack.Properties.Resources.comigeta;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(1053, 170);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // CadastrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1097, 561);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(1063, 658);
+            this.Controls.Add(this.lblTitulo);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.grbEditTelefone);
             this.Controls.Add(this.grbApagar);
             this.Controls.Add(this.grbEditar);
             this.Controls.Add(this.grbCadastrar);
             this.Controls.Add(this.dgvCliente);
-            this.Controls.Add(this.lblTitulo);
             this.Name = "CadastrarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CadastrarCliente";
@@ -306,6 +357,7 @@
             this.grbApagar.PerformLayout();
             this.grbEditTelefone.ResumeLayout(false);
             this.grbEditTelefone.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -336,5 +388,6 @@
         private System.Windows.Forms.Label lblCpfEditTel;
         private System.Windows.Forms.TextBox txbEditTel;
         private System.Windows.Forms.Button txbTelefoneEdit;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

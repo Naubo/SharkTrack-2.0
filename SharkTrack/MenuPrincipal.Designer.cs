@@ -34,41 +34,49 @@
             this.btnAluguel = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pctSair = new System.Windows.Forms.PictureBox();
+            this.lblTitulo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctSair)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCadastrar
             // 
+            this.btnCadastrar.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.btnCadastrar.Location = new System.Drawing.Point(393, 139);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(138, 69);
             this.btnCadastrar.TabIndex = 0;
             this.btnCadastrar.Text = "Cadastrar Cliente";
-            this.btnCadastrar.UseVisualStyleBackColor = true;
+            this.btnCadastrar.UseVisualStyleBackColor = false;
             this.btnCadastrar.Click += new System.EventHandler(this.btnCadastrar_Click);
             // 
             // btnModelosCarros
             // 
+            this.btnModelosCarros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnModelosCarros.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnModelosCarros.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModelosCarros.Location = new System.Drawing.Point(393, 226);
             this.btnModelosCarros.Name = "btnModelosCarros";
             this.btnModelosCarros.Size = new System.Drawing.Size(138, 69);
             this.btnModelosCarros.TabIndex = 1;
             this.btnModelosCarros.Text = "Modelos Disponiveis";
-            this.btnModelosCarros.UseVisualStyleBackColor = true;
+            this.btnModelosCarros.UseVisualStyleBackColor = false;
             this.btnModelosCarros.Click += new System.EventHandler(this.btnModelosCarros_Click);
             // 
             // btnAluguel
             // 
+            this.btnAluguel.BackColor = System.Drawing.Color.SpringGreen;
+            this.btnAluguel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAluguel.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAluguel.Location = new System.Drawing.Point(393, 314);
             this.btnAluguel.Name = "btnAluguel";
             this.btnAluguel.Size = new System.Drawing.Size(138, 69);
             this.btnAluguel.TabIndex = 2;
             this.btnAluguel.Text = "Efetuar Aluguel";
-            this.btnAluguel.UseVisualStyleBackColor = true;
+            this.btnAluguel.UseVisualStyleBackColor = false;
             this.btnAluguel.Click += new System.EventHandler(this.btnAluguel_Click);
             // 
             // pictureBox1
@@ -95,11 +103,22 @@
             this.pctSair.TabStop = false;
             this.pctSair.Click += new System.EventHandler(this.pctSair_Click);
             // 
+            // lblTitulo
+            // 
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Lucida Bright", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitulo.Location = new System.Drawing.Point(200, 33);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(175, 31);
+            this.lblTitulo.TabIndex = 8;
+            this.lblTitulo.Text = "Shark Track";
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 468);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.pctSair);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnAluguel);
@@ -114,6 +133,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctSair)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -124,5 +144,6 @@
         private System.Windows.Forms.Button btnAluguel;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pctSair;
+        private System.Windows.Forms.Label lblTitulo;
     }
 }

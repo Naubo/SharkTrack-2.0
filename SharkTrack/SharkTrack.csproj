@@ -123,6 +123,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Views\CadastrarCliente.resx">
       <DependentUpon>CadastrarCliente.cs</DependentUpon>
@@ -146,6 +147,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impala 67.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mystery machine.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impala 671.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\67.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mystery.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comigeta.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
