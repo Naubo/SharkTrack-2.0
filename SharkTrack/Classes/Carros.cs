@@ -25,7 +25,7 @@ namespace SharkTrack.Classes
 
         public DataTable ListarTudo()
         {
-            string comando = "SELECT * FROM carro";
+            string comando = "SELECT * FROM carro WHERE situacao = 0";
 
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();

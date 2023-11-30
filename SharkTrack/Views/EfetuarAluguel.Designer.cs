@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EfetuarAluguel));
             this.lblDatadeRetirada = new System.Windows.Forms.Label();
             this.dgvCarro = new System.Windows.Forms.DataGridView();
             this.lblDatadeDevolucao = new System.Windows.Forms.Label();
@@ -129,7 +130,7 @@
             this.lblTotal.BackColor = System.Drawing.Color.Transparent;
             this.lblTotal.Font = new System.Drawing.Font("Lucida Bright", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblTotal.Location = new System.Drawing.Point(502, 446);
+            this.lblTotal.Location = new System.Drawing.Point(502, 452);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(122, 33);
             this.lblTotal.TabIndex = 8;
@@ -152,6 +153,7 @@
             // dtpRetirada
             // 
             this.dtpRetirada.Location = new System.Drawing.Point(159, 66);
+            this.dtpRetirada.MinDate = new System.DateTime(2023, 11, 30, 0, 0, 0, 0);
             this.dtpRetirada.Name = "dtpRetirada";
             this.dtpRetirada.Size = new System.Drawing.Size(268, 20);
             this.dtpRetirada.TabIndex = 15;
@@ -159,9 +161,11 @@
             // dtpDevolucao
             // 
             this.dtpDevolucao.Location = new System.Drawing.Point(777, 70);
+            this.dtpDevolucao.MinDate = new System.DateTime(2023, 12, 25, 23, 59, 59, 0);
             this.dtpDevolucao.Name = "dtpDevolucao";
             this.dtpDevolucao.Size = new System.Drawing.Size(228, 20);
             this.dtpDevolucao.TabIndex = 16;
+            this.dtpDevolucao.Value = new System.DateTime(2023, 12, 25, 23, 59, 59, 0);
             // 
             // dgvCliente
             // 
@@ -169,6 +173,7 @@
             this.dgvCliente.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCliente.Location = new System.Drawing.Point(590, 115);
             this.dgvCliente.Name = "dgvCliente";
+            this.dgvCliente.ReadOnly = true;
             this.dgvCliente.Size = new System.Drawing.Size(477, 235);
             this.dgvCliente.TabIndex = 17;
             this.dgvCliente.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCliente_CellClick);
@@ -390,9 +395,10 @@
             this.Controls.Add(this.dgvCarro);
             this.Controls.Add(this.lblDatadeRetirada);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "EfetuarAluguel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "EfetuarAluguel";
+            this.Text = "Efetuar Aluguel";
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).EndInit();
             this.grbInfoCarro.ResumeLayout(false);

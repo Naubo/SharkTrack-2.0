@@ -26,39 +26,46 @@ namespace SharkTrack.Views
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            //instanciar Cliente:
 
-            Classes.Carros carros = new Classes.Carros();
-
-            //obter valores dos campos
-
-            carros.Marca  = txbMarca.Text;
-            carros.Modelo = txbModelo.Text;
-            carros.Placa = txbPlaca.Text;
-            carros.Preco = double.Parse(txbPrecoCadastrar.Text);
-            carros.Ano = int.Parse(txbAnoCadastrar.Text);
-            carros.Quilometragem = int.Parse(txbQuilometragem.Text);
-
-            if (carros.Cadastrar() == true)
+            if (txbMarca.Text != "" && txbModelo.Text != "" && txbAnoCadastrar.Text != "" && txbPrecoCadastrar.Text != "" && txbPlaca.Text != "" && txbQuilometragem.Text != "")
             {
-                MessageBox.Show("Carro cadastrado com sucesso!");
+                //instanciar Cliente:
 
-                //limpar os campos
-                txbMarca.Clear();
-                txbModelo.Clear();
-                txbAnoCadastrar.Clear();
-                txbPrecoCadastrar.Clear();
-                txbPlaca.Clear();
-                txbQuilometragem.Clear();
+                Classes.Carros carros = new Classes.Carros();
 
-                //atualizar dgv
-                dgvCarros.DataSource = carros.ListarTudo();
+                //obter valores dos campos
+
+                carros.Marca = txbMarca.Text;
+                carros.Modelo = txbModelo.Text;
+                carros.Placa = txbPlaca.Text;
+                carros.Preco = double.Parse(txbPrecoCadastrar.Text);
+                carros.Ano = int.Parse(txbAnoCadastrar.Text);
+                carros.Quilometragem = int.Parse(txbQuilometragem.Text);
+
+                if (carros.Cadastrar() == true)
+                {
+                    MessageBox.Show("Carro cadastrado com sucesso!");
+
+                    //limpar os campos
+                    txbMarca.Clear();
+                    txbModelo.Clear();
+                    txbAnoCadastrar.Clear();
+                    txbPrecoCadastrar.Clear();
+                    txbPlaca.Clear();
+                    txbQuilometragem.Clear();
+
+                    //atualizar dgv
+                    dgvCarros.DataSource = carros.ListarTudo();
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao cadastrar carro");
+                }
             }
             else
             {
-                MessageBox.Show("Falha ao cadastrar carro");
+                MessageBox.Show("Campos Vazios!", "Inválido!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
         }
 
         private void btnApagar_Click(object sender, EventArgs e)
@@ -105,43 +112,50 @@ namespace SharkTrack.Views
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            //instanciar usuario
-            Classes.Carros carros = new Classes.Carros();
-            //obter valores dos campos
-            carros.Id = IdSelecionado;
-            carros.Marca = txbMarcaEdit.Text;
-            carros.Modelo = txbModeloEdit.Text;
-            carros.Placa = txbPlacaEdit.Text;
-            carros.Preco = double.Parse(txbPrecoEdit.Text);
-            carros.Ano = int.Parse(txbAnoEdit.Text);
-            carros.Quilometragem = int.Parse(txbQuilometragemEdit.Text);
+            if (txbMarcaEdit.Text != "" && txbModeloEdit.Text != "" && txbAnoEdit.Text != "" && txbPrecoEdit.Text != "" && txbPlacaEdit.Text != "" && txbQuilometragemEdit.Text != "")
+            {  
+                //instanciar usuario
+                Classes.Carros carros = new Classes.Carros();
+                //obter valores dos campos
+                carros.Id = IdSelecionado;
+                carros.Marca = txbMarcaEdit.Text;
+                carros.Modelo = txbModeloEdit.Text;
+                carros.Placa = txbPlacaEdit.Text;
+                carros.Preco = double.Parse(txbPrecoEdit.Text);
+                carros.Ano = int.Parse(txbAnoEdit.Text);
+                carros.Quilometragem = int.Parse(txbQuilometragemEdit.Text);
 
 
-            if (carros.Modificar() == true)
-            {
-                MessageBox.Show("Carro modificado!", "Sucesso!", MessageBoxButtons.OK, 
-                    MessageBoxIcon.Information);
+                if (carros.Modificar() == true)
+                {
+                    MessageBox.Show("Carro modificado!", "Sucesso!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
 
-                // atualizar dgv
-                dgvCarros.DataSource = carros.ListarTudo();
+                    // atualizar dgv
+                    dgvCarros.DataSource = carros.ListarTudo();
 
-                //limpar campos de edicao
-                txbMarcaEdit.Clear();
-                txbModeloEdit.Clear();
-                txbAnoEdit.Clear();
-                txbPrecoEdit.Clear();
-                txbPlacaEdit.Clear();
-                txbQuilometragemEdit.Clear();
-                lblMensagem.Text = "Selecione um carro para apagar:";
+                    //limpar campos de edicao
+                    txbMarcaEdit.Clear();
+                    txbModeloEdit.Clear();
+                    txbAnoEdit.Clear();
+                    txbPrecoEdit.Clear();
+                    txbPlacaEdit.Clear();
+                    txbQuilometragemEdit.Clear();
+                    lblMensagem.Text = "Selecione um carro para apagar:";
 
-                //desabilitar group box edição e apagar
-                grbEditar.Enabled = false;
-                grbApagar.Enabled = false;
+                    //desabilitar group box edição e apagar
+                    grbEditar.Enabled = false;
+                    grbApagar.Enabled = false;
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao modificar Carro!", "ERROR!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else
             {
-                MessageBox.Show("Falha ao modificar Carro!", "ERROR!", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Campos Vazios!", "Inválido!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

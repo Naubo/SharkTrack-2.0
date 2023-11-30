@@ -32,6 +32,7 @@ namespace SharkTrack.Views
         {
             //instanciar Cliente:
             Classes.Aluguel aluguel = new Classes.Aluguel();
+            Classes.Carros carro = new Classes.Carros();
 
             //obter valores dos campos
             aluguel.Id_usuario = idCliente;
@@ -52,6 +53,8 @@ namespace SharkTrack.Views
                 txbPlaca.Clear();
                 txbPreco.Clear();
                 txbQuilom.Clear();
+                // Atualizar
+                dgvCarro.DataSource = carro.ListarTudo();
             }
             else
             {
@@ -104,16 +107,29 @@ namespace SharkTrack.Views
 
         private void btnCalcularAluguel_Click(object sender, EventArgs e)
         {
-            // Obtém as datas dos DateTimePickers
-            DateTime data1 = dtpRetirada.Value;
-            DateTime data2 = dtpDevolucao.Value;
+            // Tratamento caso não selecione o usuário e o carro, para poder calcular
+            if (txbMarca.Text != "" && txbAno.Text != "" && txbModelo.Text != "" && txbPlaca.Text != "" && txbPreco.Text != "" 
+                && txbQuilom.Text != "" && txbNomeEdit.Text != "" && txbCpfEdit.Text != "") 
+            {
+                // Obtém as datas dos DateTimePickers
+                DateTime data1 = dtpRetirada.Value;
+                DateTime data2 = dtpDevolucao.Value;
 
-            // Calcula a diferença entre as datas
-            TimeSpan diferenca = data2 - data1;
+                // Calcula a diferença entre as datas
+                TimeSpan diferenca = data2 - data1;
 
-            int total = int.Parse(txbPreco.Text);
-            int calculo = total * diferenca.Days;
-            lblTotal.Text = ("R$ ") + String.Format("{0:0.00}", calculo);
+                int total = int.Parse(txbPreco.Text);
+                int calculo = total * diferenca.Days;
+                lblTotal.Text = ("R$ ") + String.Format("{0:0.00}", calculo);
+            }
+            else
+            {
+                {
+                    MessageBox.Show("Selecione o cliente ou o carro!", "Inválido!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+           
         }
     }
 }

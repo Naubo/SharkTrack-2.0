@@ -18,14 +18,13 @@ namespace SharkTrack.Classes
 
         public bool Cadastrar()
         {
-            string comando = "INSERT INTO aluguel (id_usuario, id_carro, data_retirada, data_devolucao) VALUES" +
-                "(@idu, @idc, @datareti, @datadevo)";
+            string comando = "CALL cadastrar_aluguel(@idu, @idc, @dataret, @datadevo)";
             Banco.ConexaoBanco conexaoBD = new Banco.ConexaoBanco();
             MySqlConnection con = conexaoBD.ObterConexao();
             MySqlCommand cmd = new MySqlCommand(comando, con);
             cmd.Parameters.AddWithValue("@idu", Id_usuario);
             cmd.Parameters.AddWithValue("@idc", Id_carro);
-            cmd.Parameters.AddWithValue("@datareti", Data_retirada);
+            cmd.Parameters.AddWithValue("@dataret", Data_retirada);
             cmd.Parameters.AddWithValue("@datadevo", Data_devolucao);
 
             cmd.Prepare();

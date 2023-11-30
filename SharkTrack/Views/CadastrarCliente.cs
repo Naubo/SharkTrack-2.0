@@ -27,7 +27,7 @@ namespace SharkTrack.Views
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
             // Caso os campos estejam vazios, correção do erro //
-            if (txbNome.Text != "" || txbCPF.Text != "" || txbTelefone.Text != "")
+            if (txbNome.Text != "" && txbCPF.Text != "" && txbTelefone.Text != "")
             {
                 //instanciar Cliente:
                 Classes.Clientes cliente = new Classes.Clientes();
@@ -126,7 +126,7 @@ namespace SharkTrack.Views
         {
 
             //correção caso algum dos dois campos estejam vazios:
-            if (txbNomeEdit.Text != "" || txbCpfEdit.Text != "")
+            if (txbNomeEdit.Text != "" && txbCpfEdit.Text != "")
             {
                 //instanciar usuario
                 Classes.Clientes cliente = new Classes.Clientes();
