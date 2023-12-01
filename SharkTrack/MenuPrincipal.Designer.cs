@@ -35,6 +35,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pctSair = new System.Windows.Forms.PictureBox();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.btnDevolucao = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctSair)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +46,7 @@
             this.btnCadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCadastrar.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCadastrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnCadastrar.Location = new System.Drawing.Point(393, 139);
+            this.btnCadastrar.Location = new System.Drawing.Point(393, 111);
             this.btnCadastrar.Name = "btnCadastrar";
             this.btnCadastrar.Size = new System.Drawing.Size(138, 69);
             this.btnCadastrar.TabIndex = 0;
@@ -58,7 +59,7 @@
             this.btnModelosCarros.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnModelosCarros.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnModelosCarros.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModelosCarros.Location = new System.Drawing.Point(393, 226);
+            this.btnModelosCarros.Location = new System.Drawing.Point(393, 196);
             this.btnModelosCarros.Name = "btnModelosCarros";
             this.btnModelosCarros.Size = new System.Drawing.Size(138, 69);
             this.btnModelosCarros.TabIndex = 1;
@@ -71,7 +72,7 @@
             this.btnAluguel.BackColor = System.Drawing.Color.SpringGreen;
             this.btnAluguel.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAluguel.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAluguel.Location = new System.Drawing.Point(393, 314);
+            this.btnAluguel.Location = new System.Drawing.Point(393, 282);
             this.btnAluguel.Name = "btnAluguel";
             this.btnAluguel.Size = new System.Drawing.Size(138, 69);
             this.btnAluguel.TabIndex = 2;
@@ -82,9 +83,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(23, 161);
+            this.pictureBox1.Location = new System.Drawing.Point(25, 159);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(289, 184);
+            this.pictureBox1.Size = new System.Drawing.Size(338, 227);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -113,11 +114,25 @@
             this.lblTitulo.TabIndex = 8;
             this.lblTitulo.Text = "Shark Track";
             // 
+            // btnDevolucao
+            // 
+            this.btnDevolucao.BackColor = System.Drawing.Color.SandyBrown;
+            this.btnDevolucao.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnDevolucao.Font = new System.Drawing.Font("Lucida Bright", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDevolucao.Location = new System.Drawing.Point(393, 368);
+            this.btnDevolucao.Name = "btnDevolucao";
+            this.btnDevolucao.Size = new System.Drawing.Size(138, 69);
+            this.btnDevolucao.TabIndex = 9;
+            this.btnDevolucao.Text = "Efetuar Devolução";
+            this.btnDevolucao.UseVisualStyleBackColor = false;
+            this.btnDevolucao.Click += new System.EventHandler(this.btnDevolucao_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(586, 468);
+            this.Controls.Add(this.btnDevolucao);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.pctSair);
             this.Controls.Add(this.pictureBox1);
@@ -145,5 +160,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pctSair;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.Button btnDevolucao;
     }
 }

@@ -97,6 +97,12 @@
     <Compile Include="Views\CadastrarCliente.Designer.cs">
       <DependentUpon>CadastrarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Devolucao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Devolucao.Designer.cs">
+      <DependentUpon>Devolucao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\EfetuarAluguel.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,9 @@
     </Compile>
     <EmbeddedResource Include="Views\CadastrarCliente.resx">
       <DependentUpon>CadastrarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Devolucao.resx">
+      <DependentUpon>Devolucao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\EfetuarAluguel.resx">
       <DependentUpon>EfetuarAluguel.cs</DependentUpon>

@@ -42,5 +42,11 @@ namespace SharkTrack
         {
             Close();
         }
+
+        private void btnDevolucao_Click(object sender, EventArgs e)
+        {
+            Views.Devolucao janela = new Views.Devolucao();
+            janela.Show();
+        }
     }
 }

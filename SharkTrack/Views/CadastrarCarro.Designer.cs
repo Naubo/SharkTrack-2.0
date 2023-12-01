@@ -62,10 +62,12 @@
             this.btnApagar = new System.Windows.Forms.Button();
             this.lblMensagem = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarros)).BeginInit();
             this.grbCadastrar.SuspendLayout();
             this.grbEditar.SuspendLayout();
             this.grbApagar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvCarros
@@ -75,7 +77,7 @@
             this.dgvCarros.Location = new System.Drawing.Point(324, 170);
             this.dgvCarros.Name = "dgvCarros";
             this.dgvCarros.ReadOnly = true;
-            this.dgvCarros.Size = new System.Drawing.Size(654, 487);
+            this.dgvCarros.Size = new System.Drawing.Size(693, 487);
             this.dgvCarros.TabIndex = 0;
             this.dgvCarros.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCarros_CellClick);
             // 
@@ -347,7 +349,7 @@
             this.grbApagar.Controls.Add(this.btnApagar);
             this.grbApagar.Controls.Add(this.lblMensagem);
             this.grbApagar.Enabled = false;
-            this.grbApagar.Location = new System.Drawing.Point(713, 30);
+            this.grbApagar.Location = new System.Drawing.Point(752, 30);
             this.grbApagar.Name = "grbApagar";
             this.grbApagar.Size = new System.Drawing.Size(265, 134);
             this.grbApagar.TabIndex = 4;
@@ -389,13 +391,24 @@
             this.lblTitulo.TabIndex = 5;
             this.lblTitulo.Text = ":: Shark Track - Cadastro Automóvel\r\n\r\n";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(554, 34);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(192, 113);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            // 
             // CadastrarCarro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(990, 676);
+            this.ClientSize = new System.Drawing.Size(1029, 676);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.grbApagar);
             this.Controls.Add(this.grbEditar);
@@ -413,6 +426,7 @@
             this.grbEditar.PerformLayout();
             this.grbApagar.ResumeLayout(false);
             this.grbApagar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -453,5 +467,6 @@
         private System.Windows.Forms.TextBox txbAnoEdit;
         private System.Windows.Forms.Label lblAnoEditar;
         private System.Windows.Forms.Label lblTitulo;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

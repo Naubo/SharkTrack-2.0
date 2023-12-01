@@ -61,3 +61,4 @@ C:\Users\Naubar\source\repos\SharkTrack\SharkTrack-2.0\SharkTrack\obj\Debug\Shar
 C:\Users\Naubar\source\repos\SharkTrack\SharkTrack-2.0\SharkTrack\obj\Debug\SharkTrack.csproj.CopyComplete
 C:\Users\Naubar\source\repos\SharkTrack\SharkTrack-2.0\SharkTrack\obj\Debug\SharkTrack.exe
 C:\Users\Naubar\source\repos\SharkTrack\SharkTrack-2.0\SharkTrack\obj\Debug\SharkTrack.pdb
+C:\Users\nauber.gdsouza\source\repos\SharkTrack\SharkTrack\obj\Debug\SharkTrack.Views.Devolucao.resources

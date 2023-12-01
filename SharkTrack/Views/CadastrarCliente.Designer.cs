@@ -52,11 +52,13 @@
             this.lblCpfEditTel = new System.Windows.Forms.Label();
             this.txbEditTel = new System.Windows.Forms.TextBox();
             this.txbTelefoneEdit = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCliente)).BeginInit();
             this.grbCadastrar.SuspendLayout();
             this.grbEditar.SuspendLayout();
             this.grbApagar.SuspendLayout();
             this.grbEditTelefone.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitulo
@@ -321,12 +323,23 @@
             this.txbTelefoneEdit.UseVisualStyleBackColor = false;
             this.txbTelefoneEdit.Click += new System.EventHandler(this.txbTelefoneEdit_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(353, 88);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(123, 74);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
             // CadastrarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(823, 658);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.grbEditTelefone);
             this.Controls.Add(this.grbApagar);
@@ -347,6 +360,7 @@
             this.grbApagar.PerformLayout();
             this.grbEditTelefone.ResumeLayout(false);
             this.grbEditTelefone.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,5 +391,6 @@
         private System.Windows.Forms.TextBox txbCPF;
         private System.Windows.Forms.TextBox txbTelefone;
         private System.Windows.Forms.TextBox txbCpfEdit;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
